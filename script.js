@@ -66,12 +66,18 @@ function updateTime(){
     }
 }
 function gameOver(){
+    endGameContainer.innerHTML = '';
     const scoreMessage = document.createElement('div');
     scoreMessage.textContent = `Your time ran out. your final score is: ${score}.`
     textElement.disabled = true; 
 
     endGameContainer.appendChild(scoreMessage);
-
+    const restartButton = document.createElement('button');
+    restartButton.textContent = 'Restart';
+    restartButton.onclick = function() {
+        location.reload();  // Reload the page to restart the game
+    };
+    endGameContainer.appendChild(restartButton);
 }
 textElement.addEventListener ("input", function (e) {
     const typedWord = e.target.value;
