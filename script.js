@@ -26,17 +26,18 @@ const words = [
     "north",
   ];
 
-function addWordToDOM(){
 
-}
 
 // PART 1 
 
 
 // Create a addWordToDOM function that will give a random word to the user 
+function addWordToDOM(){
+}
 
 // Create a updateScore function that will increment score by 1 
-
+function updateScore (){
+}
 // Add an event listener to the text element. When you type in the correct word, the function should:  
 
 // update score  
@@ -54,8 +55,13 @@ function addWordToDOM(){
 // Counting down - timer 
 
 // Create a updateTime function, every time it runs it should decrement 1 from the timer 
+function updateTime(){
 
+}
 // Create  a gameOver function that will open once the timer hits zero 
+function gameOver(){
+    
+}
 
  
 
