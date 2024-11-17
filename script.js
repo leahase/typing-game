@@ -34,71 +34,42 @@ const timeElement = document.getElementById("time");
 const endGameContainer = document.getElementById("end-game-container");
 const settingsBtn = document.getElementById("settings-btn");
 const settings = document.getElementById("settings");
-const difficulty = document.getElementById("difficulty");
-
-// PART 1 
+const difficultyChoice = document.getElementById("difficulty");
 
 
-// Create a addWordToDOM function that will give a random word to the user 
-function addWordToDOM(){
-}
+let randomWord;
+let score = 0;
+let time = 10;
+let difficulty = difficultyChoice.value;
 
-// Create a updateScore function that will increment score by 1 
+
+//timer
+const timeInterval = setInterval(updateTime, 1000);
+
+function addWordToDOM() {
+    const randomWord = words[Math.floor(Math.random() * words.length)];
+    wordElement.innerHTML = randomWord;
+} //för att skapa ett random ord och add word to DOM
+
 function updateScore (){
+    score = score + 1;
+    scoreElement.innerHTML = score;
 }
-// Add an event listener to the text element. When you type in the correct word, the function should:  
 
-// update score  
-
-// give the user a new word  
-
-// increment time by 5 seconds  
-
-// reset the input to empty string 
-
- 
-
-// PART 2 
-
-// Counting down - timer 
-
-// Create a updateTime function, every time it runs it should decrement 1 from the timer 
 function updateTime(){
-
+    time = time - 1;
+    timeElement.innerHTML = time + "s"; //visar i sekunder
+    if (time <= 0) {
+        clearInterval(timeInterval); //stoppar countdown timer
+        gameOver(); //call function game over
+    }
 }
-// Create  a gameOver function that will open once the timer hits zero 
 function gameOver(){
+    endGameContainer.innerHTML = `
+    <h2>Time ran out</h2>
+    <p>Your final score is ${score}</p>
+    `;
 
 }
-
- 
-
-// PART 3, OPTIONAL: 
-
-// Add an even listener to the settings button that will hide the settings 
-
-// Add an event listener for the settings form so that you can change the difficulty 
-
-// Set time depending on difficulty in the eventlistener 
-
- 
-
-// I have already created all of the HTML and CSS for you. You are allowed to keep customizing your CSS file if you want. YOU ARE NOT ALLOWED TO CHANGE ANYTHING IN THE HTML FILE! 
-
-// QUICK TIP: 
-
-// In order to create a button that will restart your game, you can use the onClick=”location.reload” attribute inside your button tag 
-
-// I have created some starting code for you, with complete HTML/CSS, and also some JavaScript. Clone the project from my repository with all the code inside: 
-
-// https://github.com/GrumblePuddle/Typing-game 
-
- 
-
-// Paste your Github link here: 
-
- 
-
-// Feedback (will be filled out by teacher/ teacher assistant): 
-
+textElement.addEventListener
  
