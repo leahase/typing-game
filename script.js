@@ -42,12 +42,13 @@ let score = 0;
 let time = 10;
 let difficulty = difficultyChoice.value;
 
+textElement.focus();
 
 //timer
 const timeInterval = setInterval(updateTime, 1000);
 
 function addWordToDOM() {
-    const randomWord = words[Math.floor(Math.random() * words.length)];
+    randomWord = words[Math.floor(Math.random() * words.length)];
     wordElement.innerHTML = randomWord;
 } //för att skapa ett random ord och add word to DOM
 
@@ -66,10 +67,37 @@ function updateTime(){
 }
 function gameOver(){
     endGameContainer.innerHTML = `
-    <h2>Time ran out</h2>
+    <p>Time ran out</p>
     <p>Your final score is ${score}</p>
     `;
 
 }
-textElement.addEventListener
- 
+textElement.addEventListener ("input", function (e) {
+    const typedWord = e.target.value;
+
+    if (typedWord === randomWord) {
+        addWordToDOM();
+        updateScore();
+
+        if (difficulty === "hard"){
+            time = time + 2;
+        } else if (difficulty === "medium"){
+            time = time + 3;
+        } else {
+            time = time + 5;
+        }
+        updateTime();
+        e.target.value = "";
+    }
+});
+
+ settingsBtn.addEventListener("click", function() {
+    settings.classList.toggle("hide");
+});
+
+difficultyChoice.addEventListener("change", function (e) {
+    difficulty = e.target.value;
+});
+
+  addWordToDOM();
+
