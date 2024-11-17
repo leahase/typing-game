@@ -1,9 +1,3 @@
-// Typing-game 
-
-// REQUIREMENTS: 
-// Variables for the DOM elements
-
-// Array
 const words = [
     "dependent",
     "dog",
@@ -75,7 +69,7 @@ function gameOver(){
     const restartButton = document.createElement('button');
     restartButton.textContent = 'Restart';
     restartButton.onclick = function() {
-        location.reload();  // Reload the page to restart the game
+        location.reload();  // Reload the page to restart the game but something isnt working
     };
     endGameContainer.appendChild(restartButton);
 }
@@ -94,7 +88,8 @@ textElement.addEventListener ("input", function (e) {
             time = time + 5;
         }
         updateTime();
-        e.target.value = "";
+
+        e.target.value = ""; //clear 
     }
 });
 
