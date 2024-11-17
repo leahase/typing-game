@@ -27,6 +27,14 @@ const words = [
   ];
 
 
+const wordElement = document.getElementById("word");
+const textElement = document.getElementById("text");
+const scoreElement = document.getElementById("score");
+const timeElement = document.getElementById("time");
+const endGameContainer = document.getElementById("end-game-container");
+const settingsBtn = document.getElementById("settings-btn");
+const settings = document.getElementById("settings");
+const difficulty = document.getElementById("difficulty");
 
 // PART 1 
 
@@ -60,7 +68,7 @@ function updateTime(){
 }
 // Create  a gameOver function that will open once the timer hits zero 
 function gameOver(){
-    
+
 }
 
  
