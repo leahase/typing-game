@@ -66,10 +66,11 @@ function updateTime(){
     }
 }
 function gameOver(){
-    endGameContainer.innerHTML = `
-    <p>Time ran out</p>
-    <p>Your final score is ${score}</p>
-    `;
+    const scoreMessage = document.createElement('div');
+    scoreMessage.textContent = `Your time ran out. your final score is: ${score}.`
+    textElement.disabled = true; 
+
+    endGameContainer.appendChild(scoreMessage);
 
 }
 textElement.addEventListener ("input", function (e) {
